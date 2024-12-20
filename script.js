@@ -30,22 +30,47 @@ $(document).ready(function () {
   
   
   $.getJSON("https://opensheet.elk.sh/" + SPREADSHEET_ID + "/" + TAB_NAME, function (data) {
-    
-   // console.log(data); 
 
      // go over everything in data and run the code below append after entry what you want to type
     data.forEach(function (entry, index) {
-
+     
       
-      // Name einfügenm
-           let Veranstaltung = $(`<div class='p'>
+    // einmal das Alter des Events in tagen bekommen
+    var alter = entry.AlterInTagen;    
+    var AltersPassenderContainer = "#AktuelleEvents" ;
+    
+      // die Farben welche dann verwendet werden sollen
+      var ColorBackground = "#727272";
+      var ColorVeranstaltungToday = "#32a852";
+      var ColorVeranstaltungSoon = "#00ff45";
+      var ColorVeranstaltungVergangen = "#005a4d";
+      
+
+        
+      if (alter == 0){ //than its today
+        ColorBackground = ColorVeranstaltungToday;
+        
+      } else  // es ist nicht heute
+        if (alter < 0){ 
+               ColorBackground = ColorVeranstaltungSoon;
+            } else { 
+              ColorBackground = ColorVeranstaltungVergangen;
+              AltersPassenderContainer = "#VergangeneEvents" ;}
+      
+
+     // console.log(AltersPassenderContainer);
+      
+      
+      var IDMeinContainer = "Veranstaltung-"+ index; 
+      // Name einfügenm und das ganze starten
+           let Veranstaltung = $(`<div class='p' id=${IDMeinContainer} style=background-color:${ColorBackground}>   
               <h2 class="name">` + index + "" +
               ` <span class='Kunstwerk'>` + entry.Veranstaltungstitel + `
   
-              </div>`).appendTo("#people");  
+              </div>`).appendTo(AltersPassenderContainer);  
       
       
-
+//<span class="close" onclick="closeDetails('tile1-details')">
       
       // Bild hinzufügem
                  if (entry.Cover+ "" !== "undefined"){ // user uploaded image is not nothing
@@ -53,13 +78,13 @@ $(document).ready(function () {
                 var uploadedImgParsed = entry.Cover +""; //make string out of the entry not an object
                 var beforeReplace = "https://drive.google.com/open?id="; //what is the link coming as
                 var afterReplace = "https://lh3.googleusercontent.com/d/"; // where is the high res image hosted
-                    
+                    //hier alters nails
                  $(`<div class='img'><img src="` + uploadedImgParsed.replace(beforeReplace,afterReplace) + `"></div>`).appendTo(Veranstaltung);  
-                    console.log(uploadedImgParsed.replace(beforeReplace,afterReplace));
+             //       console.log(uploadedImgParsed.replace(beforeReplace,afterReplace));
                    
 
   // Zusammenfassung hinzugüen
-      console.log(entry.KurzeZusammenfassung);
+    //  console.log(entry.KurzeZusammenfassung);
         if ( entry.KurzeZusammenfassung.length > 3) {
           let rec = $(`
           <details>

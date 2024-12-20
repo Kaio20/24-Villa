@@ -14,7 +14,6 @@
     <!--  Javascript goes here... sorry we're using jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
     <script src="script.js" type="text/javascript"></script>
-    <script src="editor.js" type="text/javascript"></script>
   </head>
   
   
@@ -40,18 +39,23 @@
       
 
 
-    <div id="people">
-
-    </div> 
+    <div id="AktuelleEvents"> </div> 
+    <div id="VergangeneEvents"> </div>     
       
-<div class="scroll-container"> <div class="scroll-content">This is a wide content area that needs horizontal scrolling.</div> </div> <button class="scroll-button" onclick="scrollRight()">Scroll Right</button>
 
     </main>
-    <script> 
-     function scrollRight() { const container = document.getElementById('people'); container.scrollBy({ left: 100, behavior: 'smooth' }); // Adjust scroll distance as needed }
     
-    </script>
+    
+    
+  <script> //instgram like show details in a popup: html like on instagram that when you click a tile there is a new page in front of it with more details
+    function showDetails(id) { document.getElementById(id).style.display = 'flex'; } 
+    function closeDetails(id) { document.getElementById(id).style.display = 'none'}
+  </script>
+    
+    
+    
   </body> 
+
 
 
 

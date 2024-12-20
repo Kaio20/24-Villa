@@ -7,7 +7,9 @@ body {
   
 
 
-#people{
+
+
+#AktuelleEvents{
   width: auto;
   margin: auto;
     flex: 1;
@@ -15,42 +17,43 @@ body {
     overflow: auto;
   align-items:baseline;
   flex-direction: row;
+  flex-flow: wrap;
+  justify-content: center;
 }
 
-@media only screen  and (max-width: 600px){
-  #people{
-  flex-direction: column;
-  justify-content: center;
-    align-items: center;
-  }}
 
-#people .p{
+#AktuelleEvents .p{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   
-    background-color: #957554;
-  
   min-width: 350px; 
-  min-height: 600px;
+  min-height: auto;
 
   padding: auto;
   margin: 10px;
   text-overflow: ellipsis;
-  overflow-y:clip;
+}
+
+
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 2%;
+  object-fit: cover;
+  margin: 20px;
+
+
+}
+
+.Kunstwerk {
+   font-size: 25px;
+  
 }
 
 .name {
-  color: #13070c;
-  text-align: center;
-}
-
-
-
-  .Kunstwerk {
-  font-size: 28px;
-  color: #000c24
+  background-color: #d2d8ff;
 }
 
 .VeranstaltungsBeschreibung {
