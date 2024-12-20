@@ -1,0 +1,134 @@
+body {
+  font-family: monospace;
+}
+
+/* ------- Header ------- falls scrolling dann button auch zum weiterscrollen */
+
+  
+
+
+#people{
+  width: auto;
+  margin: auto;
+    flex: 1;
+    display: flex;
+    overflow: auto;
+  align-items:baseline;
+  flex-direction: row;
+}
+
+@media only screen  and (max-width: 600px){
+  #people{
+  flex-direction: column;
+  justify-content: center;
+    align-items: center;
+  }}
+
+#people .p{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  
+    background-color: #957554;
+  
+  min-width: 350px; 
+  min-height: 600px;
+
+  padding: auto;
+  margin: 10px;
+  text-overflow: ellipsis;
+  overflow-y:clip;
+}
+
+.name {
+  color: #13070c;
+  text-align: center;
+}
+
+
+
+  .Kunstwerk {
+  font-size: 28px;
+  color: #000c24
+}
+
+.VeranstaltungsBeschreibung {
+  color: #c4db9b;
+  height: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+
+summary {
+  text-align: center;
+  padding: 5px;
+}
+
+details {
+  text-align:justify
+}
+
+img {
+  width: 275px;
+  height: 275px;
+  border-radius: 1%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* ------- Header ------- */
+
+body {
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--textcolor);
+  background: var(--bgcolor);
+  position: relative;
+  margin: 0 auto; /* centers the layout */
+}
+
+
+
+/* ------- Header ------- */
+
+header {
+  padding: 5vw 5vw 1vw 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: auto;
+  z-index: 66;
+  background-color: #e158ba;
+}
+
+header h1 {
+  font-size: 1em;
+  flex: 1; /* pushes nav to the right */
+  white-space: nowrap;
+  padding: 0 5vw 0.5em 0;
+}
+
+
+/* ------- Scrollbar ------- */
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #d7d7d7;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0034ff; 
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2996ff; 
+}
